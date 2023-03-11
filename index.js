@@ -5,7 +5,7 @@ const app = express();
 const cloudinary = require('cloudinary').v2;
 const mongoose = require('mongoose');
 const itemRouter = require('./Routes/ItemRoutes');
-const emailRouter = require('./Routes/EmailRoutes');
+const emailRouter = require('./Routes/emailRoutes');
 
 
 

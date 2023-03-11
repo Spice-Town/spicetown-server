@@ -11,9 +11,14 @@ async function sendEmail(req, res) {
       from: 'repair@spicetownguitars.com',
       subject: 'Repair Requst from ' + name,
       text: `
+      Name: ${name}
       Phone Number: ${phone}
       Issue: ${issue}`,
-      html: `<p>
+      html: `
+      <p>
+      Name: ${name}
+      </p>
+      <p>
       Phone Number: ${phone}
       </p>
       <p>

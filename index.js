@@ -34,7 +34,7 @@ db.once('open', function() {
 app.use(itemRouter);
 
 app.get('/', (req, res) => {
-  res.send('Hello World!');
+  res.send('Welcome!');
 });
 
 app.listen(3001, () => {

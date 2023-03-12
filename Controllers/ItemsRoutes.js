@@ -12,9 +12,9 @@ async function createItem(req, res, next) {
     const newItemData = {
       url: uploadResult.secure_url,
       id: uploadResult.public_id,
-      name: data.name,
+      title: data.title,
       description: data.description,
-      text: data.text,
+      date: data.date,
     };
 
     const newItem = await Item.create(newItemData);

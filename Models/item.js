@@ -9,7 +9,7 @@ const ItemSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  name: {
+  title: {
     type: String,
     required: true,
   },
@@ -17,8 +17,9 @@ const ItemSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  text: {
+  date: {
     type: String,
+    required: true,
   },
 });
 

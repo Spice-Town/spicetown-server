@@ -4,7 +4,15 @@ const mailgun = new Mailgun({ apiKey: process.env.MAILGUN_KEY, domain: process.e
 
 async function sendEmail(req, res) {
   try {
-    const { name, phone, issue } = req.body;
+    let { name, phone, issue, checks } = req.body;
+
+    if (issue === undefined) {
+      issue = 'none';
+    }
+
+    if (checks === undefined) {
+      checks = 'none';
+    }
 
     const msg = {
       to: 'spicetownguitars@gmail.com',
@@ -13,7 +21,8 @@ async function sendEmail(req, res) {
       text: `
       Name: ${name}
       Phone Number: ${phone}
-      Issue: ${issue}`,
+      Issue Desciption: ${issue}
+      Checked Issues: ${checks}`,
       html: `
       <p>
       Name: ${name}
@@ -23,7 +32,11 @@ async function sendEmail(req, res) {
       </p>
       <p>
       Issue: ${issue}
-      </p>`,
+      </p>
+      <p>
+      Checked Issues: ${checks}
+      </p>
+      `,
     };
 
 

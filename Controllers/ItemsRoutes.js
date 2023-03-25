@@ -77,7 +77,20 @@ async function updateItem(req, res, next) {
   try {
     const { id } = req.params;
     const data = req.body;
-    const updatedItem = await Item.findByIdAndUpdate(id, data, {
+    const uploadResult = await cloudinary.uploader.upload(data.file, {
+      folder: data.folder,
+    });
+
+    const updatedData = {
+      url: uploadResult.secure_url,
+      id: uploadResult.public_id,
+      title: data.title,
+      description: data.description,
+      date: data.date,
+    };
+
+    console.log(updatedData);
+    const updatedItem = await Item.findByIdAndUpdate(id, updatedData, {
       new: true,
       runValidators: true,
     });

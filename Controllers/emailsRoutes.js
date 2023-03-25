@@ -6,8 +6,6 @@ async function sendEmail(req, res) {
   try {
     let { name, input, issue, contactMethod, checks } = req.body;
 
-    console.log(req.body);
-
     if (issue === '') {
       issue = 'none';
     }
@@ -22,7 +20,7 @@ async function sendEmail(req, res) {
       checkedIssues = Object.fromEntries(
         Object.entries(checkedIssues).map(([key, value]) => [camelCaseToTitleCase(key), value]),
       );
-      
+
       const separatorMap = {
         'Setup Maintenance': '/',
         'Nut Saddle': '/',
@@ -63,8 +61,6 @@ async function sendEmail(req, res) {
         </p>
       `,
     };
-
-    console.log(msg);
 
     mailgun.messages().send(msg, (error, body) => {
       if (error) {

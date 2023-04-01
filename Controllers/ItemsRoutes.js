@@ -56,7 +56,6 @@ async function getItem(req, res, next) {
 async function deleteItem(req, res, next) {
   try {
     const { id } = req.params;
-    console.log(id);
     
     // Get the public ID of the item from the database
     const item = await Item.findById(id);

@@ -1,4 +1,5 @@
 const Item = require('../Models/item');
+const ModImg = require('../Models/modImg');
 const cloudinary = require('cloudinary').v2;
 
 async function createItem(req, res, next) {
@@ -55,10 +56,18 @@ async function getItem(req, res, next) {
 async function deleteItem(req, res, next) {
   try {
     const { id } = req.params;
-
+    
     // Get the public ID of the item from the database
     const item = await Item.findById(id);
     const publicId = item.id;
+
+    const images = await ModImg.find({ post_id: id });
+
+    for (const image of images) {
+      const publicId = image.id;
+      await cloudinary.uploader.destroy(publicId);
+      await ModImg.findByIdAndDelete(image._id);
+    }
 
     // Delete the asset from Cloudinary using the public ID
     await cloudinary.uploader.destroy(publicId);

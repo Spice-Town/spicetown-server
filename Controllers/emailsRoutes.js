@@ -10,6 +10,8 @@ async function sendEmail(req, res) {
       issue = 'none';
     }
 
+    console.log(checks);
+
     let checkedIssues = Object.fromEntries(
       Object.entries(checks).filter(([key, value]) => value === true),
     );
@@ -35,7 +37,15 @@ async function sendEmail(req, res) {
       );
     }
 
-    const checkedIssuesList = Object.keys(checkedIssues).join(', ');
+    let checkedIssuesList;
+
+    if (checkedIssues !== 'none checked') {
+      checkedIssuesList = Object.keys(checkedIssues).join(', ');
+    } else {
+      checkedIssuesList = 'none checked';
+    }
+
+
 
     const msg = {
       to: 'spicetownguitars@gmail.com',

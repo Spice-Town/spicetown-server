@@ -10,8 +10,6 @@ async function sendEmail(req, res) {
       issue = 'none';
     }
 
-    console.log(checks);
-
     let checkedIssues = Object.fromEntries(
       Object.entries(checks).filter(([key, value]) => value === true),
     );

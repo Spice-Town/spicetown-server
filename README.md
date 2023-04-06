@@ -50,12 +50,12 @@ The following endpoints are available:
 
 The following environment variables must be set:
 
-CLOUDNAME: Cloudinary cloud name.
-CLOUDAPIKEY: Cloudinary API key.
-CLOUDINARYSECRET: Cloudinary API secret.
-MONGO: MongoDB connection URI.
-MAILGUN_KEY: Mailgun API key.
-MAILGUN_DOMAIN: Mailgun domain.
+- CLOUDNAME: Cloudinary cloud name.
+- CLOUDAPIKEY: Cloudinary API key.
+- CLOUDINARYSECRET: Cloudinary API secret.
+- MONGO: MongoDB connection URI.
+- MAILGUN_KEY: Mailgun API key.
+- MAILGUN_DOMAIN: Mailgun domain.
 
 You can set these variables in a .env file in the root directory of the application.
 

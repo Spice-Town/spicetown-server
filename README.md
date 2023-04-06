@@ -38,9 +38,9 @@ The following endpoints are available:
 - DELETE /item/:id: Deletes the item with the specified ID.
 
  /mod_img
-- GET /mod_img: Returns a list of all modified images.
-- POST /mod_img: Creates a new modified image.
-- DELETE /mod_img/:id: Deletes the modified image with the specified ID.
+- GET /mod_img: Returns a list of all modal images.
+- POST /mod_img: Creates a new modal image.
+- DELETE /mod_img/:id: Deletes the modal image with the specified ID.
 
 /mail
 - POST /mail: Sends a repair request email to the shop.
